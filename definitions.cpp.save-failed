@@ -1,0 +1,191 @@
+#include <cmath>
+#include <iomanip>
+#include <cstring>
+#include <windows.h>
+#include "header.h"
+#include <iostream>
+//definitions of Cars
+Cars::Cars(){
+cout<<"name of car?"<<endl;
+cin.getline (car_name,20);
+cout<<"top speed of car?"<<endl;
+cin>>top_speed;
+cout<<"handling?"<<endl;
+cin>>handling;
+}
+
+char* Cars::get_name()const{
+return car_name;
+}
+
+int Cars::get_handling()const{
+return handling;
+}
+
+int Cars::get_top_speed()const{
+return top_speed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Definitions of Triangle;
+using namespace std;
+
+Triangle::Triangle(){
+a=0;b=0;c=0;
+}
+
+Triangle::Triangle(double _a,double _b,double _c){
+a=_a;b=_b;c=_c;
+}
+
+double p(Triangle p){
+    double halfperimeter= (p.getA()+p.getB()+p.getC())/2;
+    return halfperimeter;
+}
+
+double S(Triangle t){
+double face=sqrt(p(t)*(p(t)-t.getA())*(p(t)-t.getB())*(p(t)-t.getC()));
+return face;
+}
+
+void print(Triangle z){
+cout<<"The triangle with highest surface "<<S(z)<<" has:"<<endl;
+cout<<"side a="<<z.getA()<<endl;
+cout<<"side b="<<z.getB()<<endl;
+cout<<"side c="<<z.getC()<<endl;;
+}
+
+bool exist(Triangle j){
+return j.getA()+j.getB()>j.getC()&&j.getC()+j.getB()>j.getA()&&j.getA()+j.getC()>j.getB();
+
+}
+//end of definitons of Triangle
+
+
+//definitons of Point
+
+Point::Point(){
+x=0;    y=0;
+}
+
+Point::Point(double a, double b){
+x=a;    y=b;
+}
+
+//also possible
+//Point::Point(double a, double b):x(a),y(b)
+//{}
+
+
+double Point::getx()const{
+return x;
+}
+
+double Point::gety()const{
+return y;
+}
+
+double Point::readx(){
+cout<<"x=";
+cin>>x;
+}
+
+double Point::ready(){
+cout<<"y=";
+cin>>y;
+}
+
+double givedistance(Point const& a,Point const& b){
+double f=pow(a.getx()-b.getx(),2);
+double g=pow(a.gety()-b.gety(),2);
+double d=sqrt(f+g);
+return d;
+}
+
+void print(Point const & s){
+cout <<"("<<s.getx()<<","<<s.gety()<<")"<<endl;
+}
+//end of definition of point
+
+
+//Players
+
+Players::Players(){
+char generic[21]="Unnamed";
+strcpy(name,generic);
+number=0;
+}
+
+Players::Players(char recieved_name [],int recieved_number){
+strcpy(name,recieved_name);
+number=recieved_number;
+}
+
+void Players::read(){
+cout<<"name? ";
+cin.ignore();
+cin.getline(name,20);
+cout<<"number? ";
+cin>>number;
+cout<<endl;
+}
+
+void Players::print()const{
+cout<<name<<"  "<<number<<endl;
+}
+
+int Players::get_number()const{
+return number;
+}
+
+
+void get_players(int n,Players those [],Players* pthose[]){
+
+    for (int i=0;i<n;i++){
+        those[i].read();
+        pthose[i]=&those[i];
+    }
+}
+
+void print_players(int n,Players* show[]){
+    for (int i=0;i<n;i++){
+        show[i]->print();
+    }
+
+}
+
+void sort_players(int n,Players* s[]){
+    for (int i=0;i<n-1;i++){
+        int mini=(s[i]->get_number());
+        int minpos=i;
+            {for (int j=i+1;j<n;j++){
+                if (mini>(s[j]->get_number())){
+                mini=s[j]->get_number();
+                minpos=j;
+                }
+
+            }
+           // swap(s[i],s[minpos]);
+            Players* swaper=s[minpos]; s[minpos]=s[i];s[i]=swaper;
+            }
+}
+
+
+}
+
+//end of definitions of players

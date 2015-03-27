@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1427455474 source:c:\users\nooby\desktop\stuff\semester 2\struct.pain\new folder\10 projects\10 classes\main.cpp
+	<iostream>
+	"definitions.cpp"
+
+1427456034 c:\users\nooby\desktop\stuff\semester 2\struct.pain\new folder\10 projects\10 classes\definitions.cpp
+	<cmath>
+	<iomanip>
+	<cstring>
+	<windows.h>
+	"header.h"
+	<iostream>
+
+1427456310 c:\users\nooby\desktop\stuff\semester 2\struct.pain\new folder\10 projects\10 classes\header.h
+
